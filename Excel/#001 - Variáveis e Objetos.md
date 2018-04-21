@@ -17,6 +17,13 @@ Existem vários tipos de variáveis dentro do VBA, cada qual armazena um tipo de
 | **Currency** | 8 bytes | de -922.337.203.685.477,5808 a 922.337.203.685.477,5807 |
 | **Decimal** | 12 bytes | +/-79.228.162.514.264.337.593.543.950.335 sem casas decimais |
 ||| +/-7,9228162514264337593543950335 com até 28 casas decimais |
-| **** |  bytes |  |
+| **Date** | 8 bytes | 01 de Janeiro de 0100 a 31 de Dezembro de 9999 |
+| **String (Variável)** | 10 bytes + comprimento da String | 0 a aproximadamente 2 bilhões de caracteres |
+| **String (Fixa)** | comprimento da String | 1 a aproximadamente 65.400 caracteres |
+| **Variant (Números)** | 16 bytes | Qualquer valor até o valor de um tipo de dados Double. Ele também pode |
+||| carregar caracteres especiais como Empty, Error, Nothing e Null |
+| **Variant (Caracteres)** | 22 bytes + comprimento da String | 0 a aproximadamente 2 bilhões de caracteres |
+| **User-Defined** | Depende | Varia de acordo com os elementos |
+| **Object** | 4 bytes | Se referencia a qualquer objeto |
 
 > **Importante**: No VBA utiliza-se tudo em inglês, caso não seja familiarizado procure entender as principais palavras utilizadas.
