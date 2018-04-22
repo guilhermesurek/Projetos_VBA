@@ -42,4 +42,6 @@ Dim minha_soma As Byte 'Caso saiba que o valor dessa variável não passará de 
 minha_soma = 3 + 5
 ```
 Agora, por que é aconselhável declarar suas variáveis:
-1.Quando não se declara o tipo da variável o VBA define como **Variant**, e o tipo **Variant** é o tipo que mais ocupa espaço na memória do computador. Enquanto o tipo **Integer** (Inteiro) ocupa 2 bytes de memória o tipo **Variant** ocupa 16 bytes, 8 vezes mais. Se a sua aplicação é um projeto de pequeno porte e não irá trabalhar com um volume de dados e variáveis muito grande você não irá notar a diferença, porém em aplicações de grande porte o impacto é considerável a ponto de não rodar em computadores com pouca memória.
+1. Quando não se declara o tipo da variável o VBA define como **Variant**, e o tipo **Variant** é o tipo que mais ocupa espaço na memória do computador. Enquanto o tipo **Integer** (Inteiro) ocupa 2 bytes de memória o tipo **Variant** ocupa 16 bytes, 8 vezes mais. Se a sua aplicação é um projeto de pequeno porte e não irá trabalhar com um volume de dados e variáveis muito grande você não irá notar a diferença, porém em aplicações de grande porte o impacto é considerável a ponto de não rodar em computadores com pouca memória.
+2. IntelliSense
+3. Boas Práticas
