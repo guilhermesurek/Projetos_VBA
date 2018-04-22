@@ -27,3 +27,17 @@ Existem vários tipos de variáveis dentro do VBA, cada qual armazena um tipo de
 | **Object** | 4 bytes | Se referencia a qualquer objeto |
 
 > **Importante**: No VBA utiliza-se tudo em inglês, caso não seja familiarizado procure entender as principais palavras utilizadas.
+
+### Como utilizar os diferentes tipos de variáveis
+Se você criar uma macro e dentro dela escrever a seguinte linha de código
+```
+minha_soma = 3 + 5
+```
+O VBA irá entender que você está utilizando uma nova variável chamada *minha_soma*, irá efetuar a soma **3 + 5** e alocará na variável *minha_soma* o resultado. Além disso, ele verificará que você não declarou a variável, isto é, não disse para ele qual é o tipo da variável *minha_soma* e, nesse caso, ele irá especificar esta variável como tipo **Variant**.
+Ou seja, se você simplesmente escrever as suas variáveis o VBA irá entender, porém não é aconselhável não declarar as variáveis. O correto a se fazer nesse caso seria:
+```
+Dim minha_soma As Integer
+'Ou
+Dim minha_soma As Byte 'Caso saiba que o valor dessa variável não passará de 255 e não será negativo.
+minha_soma = 3 + 5
+```
