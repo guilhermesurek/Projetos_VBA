@@ -43,5 +43,5 @@ minha_soma = 3 + 5
 ```
 Agora, por que é aconselhável declarar suas variáveis:
 1. Quando não se declara o tipo da variável o VBA define como **Variant**, e o tipo **Variant** é o tipo que mais ocupa espaço na memória do computador. Enquanto o tipo **Integer** (Inteiro) ocupa 2 bytes de memória o tipo **Variant** ocupa 16 bytes, 8 vezes mais. Se a sua aplicação é um projeto de pequeno porte e não irá trabalhar com um volume de dados e variáveis muito grande você não irá notar a diferença, porém em aplicações de grande porte o impacto é considerável a ponto de não rodar em computadores com pouca memória.
-2. IntelliSense
-3. Boas Práticas
+2. A ferramenta **IntelliSense**, também conhecida como auto-completar, que ao digitar uma parte do código o sistema faz sugestões para completar o restante, só irá funcionar quando você declarar as variáveis, ou seja, quando você definir para o VBA do que se trata aquele objeto ou variável. 
+3. E também, segundo as **boas práticas** de programação, declarando as variáveis você evita possíveis problemas como lembrando futuramente a que se refere determinada variável dentro de um código, faltar espaço na memória ao utilizar uma variável sem ter declaração, entre outros.
