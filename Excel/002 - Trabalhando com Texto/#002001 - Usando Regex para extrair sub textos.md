@@ -123,7 +123,7 @@ End Function
 Function Extrair_Regex_NSU(sTexto As String) As String
     
     ' Função: Extrair_Regex_NSU
-    '         Extrair um conjunto de 6 dígitos geralmente precedidos do termo "NSU" e que geralmente inicia-se por "50" 
+    '         Extrair um conjunto de 6 dígitos geralmente precedidos do termo "NSU" e que geralmente inicia-se por "50"
     ' Inputs: sTexto: Texto principal.
     ' Outputs: Valores extraídos do texto principal separados por vírgula - "," que se enquadram no padrão acima.
     ' Obs: Essa função pode ser utilizada na própria planilha do excel.
@@ -147,13 +147,13 @@ End Function
 Function Extrair_Regex_CV(sTexto As String) As String
     
     ' Função: Extrair_Regex_CV
-    '         Extrair um conjunto de dígitos com comprimento variando entre 7 a 9, geralmente precedidos do termo "CV" e 
+    '         Extrair um conjunto de dígitos com comprimento variando entre 7 a 9, geralmente precedidos do termo "CV" e
     '         iniciando com um dígito entre 1 e 9 seguido por dois zeros.
     ' Inputs: sTexto: Texto principal.
     ' Outputs: Valores extraídos do texto principal separados por vírgula - "," que se enquadram no padrão acima.
     ' Obs: Essa função pode ser utilizada na própria planilha do excel.
     
-    Dim vPattern(4) As Variant
+    Dim vPattern(6) As Variant
     Dim vReplace(3) As Variant
     
     ' Pattern Setting
@@ -161,7 +161,9 @@ Function Extrair_Regex_CV(sTexto As String) As String
     vPattern(1) = "CV[:\-\s]*[14][\d]{7}"
     vPattern(2) = "CV[:\-\s]*[14][\d]{6}"
     vPattern(3) = "CV[:\-\s]*[1-9][0][0][\d]{4}"
-    vPattern(4) = "[1-9][0][0][\d]{4}"
+    vPattern(4) = "CV[:\-\s]*[\d]{3}"
+    vPattern(5) = "CV[:\-\s]*[\d]{2}"
+    vPattern(6) = "[1-9][0][0][\d]{4}"
     vReplace(0) = "CV"
     vReplace(1) = "-"
     vReplace(2) = ":"
@@ -294,6 +296,18 @@ Function Teste_Extrair_CV()
     sResultadoEsperado = "4000244"
     Debug.Print "Teste 19 - " & (sResultado = sResultadoEsperado) & " - " & sStr & " - Resultado: " & sResultado
     
+    'Teste 20
+    sStr = "PGTO - NSU 91-CV 91"
+    sResultado = Extrair_Regex_CV(sStr)
+    sResultadoEsperado = "91"
+    Debug.Print "Teste 20 - " & (sResultado = sResultadoEsperado) & " - " & sStr & " - Resultado: " & sResultado
+    
+    'Teste 21
+    sStr = "PGTO - NSU 27/21-CV 27/21"
+    sResultado = Extrair_Regex_CV(sStr)
+    sResultadoEsperado = "27, 21"
+    Debug.Print "Teste 21 - " & (sResultado = sResultadoEsperado) & " - " & sStr & " - Resultado: " & sResultado
+    
 End Function
 
 Function Teste_Extrair_NSU()
@@ -417,6 +431,18 @@ Function Teste_Extrair_NSU()
     sResultado = Extrair_Regex_NSU(sStr)
     sResultadoEsperado = "507524, 507521, 507522"
     Debug.Print "Teste 19 - " & (sResultado = sResultadoEsperado) & " - " & sStr & " - Resultado: " & sResultado
+    
+    'Teste 20
+    sStr = "PGTO - NSU 91-CV 91"
+    sResultado = Extrair_Regex_CV(sStr)
+    sResultadoEsperado = "91"
+    Debug.Print "Teste 20 - " & (sResultado = sResultadoEsperado) & " - " & sStr & " - Resultado: " & sResultado
+    
+    'Teste 21
+    sStr = "PGTO - NSU 27/21-CV 27/21"
+    sResultado = Extrair_Regex_CV(sStr)
+    sResultadoEsperado = "27, 21"
+    Debug.Print "Teste 21 - " & (sResultado = sResultadoEsperado) & " - " & sStr & " - Resultado: " & sResultado
     
 End Function
 ```
