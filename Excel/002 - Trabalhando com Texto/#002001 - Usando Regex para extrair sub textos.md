@@ -5,6 +5,7 @@
 Possui-se um certo padrão de texto, porém ferramentas mais simples não conseguem extrair a parte do texto desejada. Abaixo temos uma lista de textos provenientes de partidas de pagamento e precisa-se extrair dois números principais o NSU e o CV.
 
 | Texto Original | NSU Desejado | CV Desejado |
+| :---: | --- | --- |
 | PGTO NSU TEF 509178 CV 2000022 | 509178 | 2000022 |
 | NSU 507343 - 6 | 507343 | |
 | PGTO - NSU prob. extração de dados-CV Aguardando r | | |
