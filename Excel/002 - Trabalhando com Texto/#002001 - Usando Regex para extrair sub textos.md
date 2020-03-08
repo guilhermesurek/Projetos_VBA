@@ -15,7 +15,52 @@ Possui-se um certo padrão de texto, porém ferramentas mais simples não conseg
 | PGTO - NSU 503532 / 503533 -CV 8000180 / 8000182 | 503532, 503533 | 8000180, 8000182 |
 | PGTO - NSU --CV 10000118 | | 10000118 |
 
-### Módulo VBA
+## Regex
+
+Regex - Regular Expressions - é um método de reconhecimento de padrões. Com uma escrita padronizada, faz com que o programa facilmente identifique uma cadeia de caracteres dado certo padrão.
+
+Para encontrar as expressões regex necessárias que preciso para resolver o problema costumo utilizar sites que aplicam o regex online como [Regex 101](https://regex101.com/) ou [Regexr](https://regexr.com/).
+
+### Exemplos de Expressões
+| Expressão | Descrição |
+| :---: | --- |
+| **Caracteres** | |
+| . | qualquer caractere com exceção de nova linha |
+| \w | letra |
+| \d | dígito |
+| \s | espaço em branco |
+| \W | não seja letra |
+| \D | não seja dígito |
+| \S | não seja espaço em branco |
+| [abc] | qualquer uma das três letras a, b ou c |
+| [^abc] | não seja a, b ou c |
+| [a-g] | qualquer letra entre a e g |
+| **Limites** | |
+| ^abc$ | inicia / termina uma frase |
+| \b \B | limite de letra e não seja letra|
+| **Caracteres de Escape** | |
+| \. | literalmente . |
+| \* | literalmente * |
+| \\ | literalmente \ |
+| \t | Tab |
+| \n | nova linha |
+| \r | quebra de linha |
+| **Grupos** | |
+| (abc) | captura o grupo abc |
+| (?:abc) | não captura o grupo abc |
+| (?=abc) | positivo a frente |
+| (?!abc) | negativo a frente |
+| **Quantidades** | |
+| a* | 0 ou mais a`s |
+| a+ | 1 ou mais a+? a`s |
+| a? | 0 ou 1 a |
+| a{5} | exatamente 5 a`s |
+| a{2, } | dois ou mais a`s |
+| a{1,3} | entre um e três a's |
+| a+? | menor quantidade possível |
+| ab \| cd | encontra ab ou cd |
+
+## Módulo VBA
 
 ```
 '>Módulo Regex
@@ -30,7 +75,7 @@ Function RegexMatch(sStr As String, vPattern As Variant, vReplace As Variant) As
     '         vPattern: Vetor com padrões a serem buscados no texto principal.
     '         vReplace: Vetor com padrões a serem removidos após a busca. Nem sempre o regex busca somente o que se deseja.
     ' Outputs: Valores extraídos do texto principal separados por vírgula - ","
-    'Fonte: https://www.automateexcel.com/vba/regex/
+    ' Fonte: https://www.automateexcel.com/vba/regex/
     Dim regexOne As Object
     
     '>Inicializações
