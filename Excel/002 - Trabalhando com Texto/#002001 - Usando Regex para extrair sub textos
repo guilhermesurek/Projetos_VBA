@@ -1,3 +1,21 @@
+# #002001 - Usando Regex para extrair sub textos
+
+## Problema
+
+Possui-se um certo padrão de texto, porém ferramentas mais simples não conseguem extrair a parte do texto desejada. Abaixo temos uma lista de textos provenientes de partidas de pagamento e precisa-se extrair dois números principais o NSU e o CV.
+
+| Texto Original | NSU Desejado | CV Desejado |
+| PGTO NSU TEF 509178 CV 2000022 | 509178 | 2000022 |
+| NSU 507343 - 6 | 507343 | |
+| PGTO - NSU prob. extração de dados-CV Aguardando r | | |
+| PGTO - NSU -CV 429097347 | | 429097347 |
+| NSU NÃO IDENTIFICADA | | |
+| PGTO - NSU Sem Tef-CV 15000314 | | 15000314 |
+| PGTO - NSU 503532 / 503533 -CV 8000180 / 8000182 | 503532, 503533 | 8000180, 8000182 |
+| PGTO - NSU --CV 10000118 | | 10000118 |
+
+### Módulo VBA
+
 ```
 '>Módulo Regex
 '>Referências Necessárias: (Ferramentas>Referências)
@@ -62,6 +80,7 @@ Function Extrair_Regex_NSU(sTexto As String) As String
     '         Extrair um conjunto de 6 dígitos geralmente precedidos do termo "NSU" e que geralmente inicia-se por "50" 
     ' Inputs: sTexto: Texto principal.
     ' Outputs: Valores extraídos do texto principal separados por vírgula - "," que se enquadram no padrão acima.
+    ' Obs: Essa função pode ser utilizada na própria planilha do excel.
     
     Dim vPattern(1) As Variant
     Dim vReplace(3) As Variant
@@ -86,6 +105,7 @@ Function Extrair_Regex_CV(sTexto As String) As String
     '         iniciando com um dígito entre 1 e 9 seguido por dois zeros.
     ' Inputs: sTexto: Texto principal.
     ' Outputs: Valores extraídos do texto principal separados por vírgula - "," que se enquadram no padrão acima.
+    ' Obs: Essa função pode ser utilizada na própria planilha do excel.
     
     Dim vPattern(4) As Variant
     Dim vReplace(3) As Variant
